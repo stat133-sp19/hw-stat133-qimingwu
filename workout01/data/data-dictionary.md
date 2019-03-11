@@ -1,4 +1,4 @@
-###Data Dictonary for the .csv player data files
+### Data Dictonary for the .csv player data files
 
 |    Column Name    |  Data Type  |                                          Description                                       |
 |-------------------|-------------|--------------------------------------------------------------------------------------------|
