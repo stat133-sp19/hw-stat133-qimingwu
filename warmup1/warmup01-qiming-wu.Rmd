@@ -1,0 +1,82 @@
+---
+title: "Warm up 1 - Markdown Practice"
+author: "Qiming Wu"
+date: "January 28, 2019"
+output: github_document
+---
+
+### __I. Star Wars__
+
+![](https://vignette.wikia.nocookie.net/starwars/images/6/64/SWResistance-GriffHalloran.jpg/revision/latest?cb=20180914204636)
+
+A famous quote by Griff Halloran:  
+
+>It's been too long since we've seen some action.
+
+  |    Description  |  Value  |
+  |-----------------|:-------:|
+  |    Species      |  Human  |
+  |    Gender       |  Male   |
+  |    Hair Color   |  Grey   |
+  |    Eye Color    |  Grey   |
+  |    Skin Color   |  Light  |
+
+Source: [*Star Wars Wiki*](https://starwars.fandom.com/wiki)
+
+---
+
+### __II. Cooking Recipe__
+
+#### __Plush Coconut Cake__
+
+![](https://c1.staticflickr.com/8/7907/46776031942_1fb8e07c45_n.jpg)
+
+##### __Ingredients:__
+
+  * Two cups + 3 teaspoons all-purpose flour
+  * 1 1/2 teaspoons baking soda
+  * 1/2 teaspoon fine sea salt
+  * 1 cup granulated sugar
+  * 1/2 cup coconut oil, warmed just enough to liquefy
+  * 1 1/2 cups full-fat coconut milk
+  * 1 teaspoon plain vinegar
+
+##### __Special Kitchen Tools:__
+  * Parchment paper
+  * Non-sticking cooking spray
+  * Oven
+
+##### __Steps:__  
+  1. Heat oven to 350 degrees F. Line the bottom of 9-inch round cake pan with a fitted round of parchment paper and coat the bottoms and sides with nonstick cooking spray.  
+  
+  2. Whisk together flour, baking soda, salt and granulated sugar in the bottom of a large mixing bowl. Add coconut oil, coconut milk, and vinegar and whisk until batter is smooth.  
+
+  3. Pour into prepared pan. Bake for 25 to 30 minutes [updated to note: it's sounding in the comments like it's taking some people a bit longer - it's not done until the center is set, even if it's longer than it took me], or until the top is springy and a tester inserted in the center comes out batter-free. Cool the cake in the pan on a wire rack for 10 minutes, then cut around it with a knife to ensure it is loosened and flip it out onto a cooling rack to cool the rest of the way.
+  
+##### __Special Seasons:__ *None*
+
+##### __Variation of the recipe:__
+  If you wish to make a glaze: Whisk together 3/4 cup powdered sugar with 1 to 2 tablespoons of the leftover coconut milk, adding a little at a time, until it is smooth but not too runny. Add a pinch of salt, if you wish. Once cake is fully cool, spread over the top of the cake and smooth to the edges with a knife or small offset spatula, where it will find its way down the sides decoratively on its own. You can add some white confetti sprinkles, but toasted coconut chips would be nice here too.  
+
+Source: [*Smitten Kitchen - Plush Coconut Cake*](https://smittenkitchen.com/2019/01/plush-coconut-cake/)
+
+---
+
+### __III. Euclidean Distance__
+
+#### __Definition__####
+
+---
+
+The __Euclidean distance__ between __p__ and __q__ is the length of the line segment connecting them ($\overline{\textbf{pq}}$).  
+
+In Cartesian coordinates, if __p__ = (*$p_{1}$*, *$p_{2}$*,..., *$p_{n}$*) and __q__ = (*$q_{1}$*, *$q_{2}$*,..., *$q_{n}$*) are two points in Euclidean *n-space*, then the distance (d) from __p__ to __q__, or from __q__ to __p__ is given by the Pythagorean formula:
+\[d(\textbf{p,q}) = d(\textbf{q, p}) = \sqrt{(q_1-p_1)^2 + (q_2-p_2)^2 + \cdots + (q_n - p_n)^2}\]
+\[= \sqrt{\sum_{i = 1}^{n} (q_i - p_i)^2}.\]  
+
+The position of a point in a Euclidean *n-space* is a Euclidean vector. So __p__ and __q__ may be represented as Euclidean vectors, starting from the origin of the space (initial point) with their tips (terminal points) ending at two points. The __Euclidean norm__, or __Euclidean length__, or __magnitude__ of a vector measures the length of the vector:
+\[\lvert \lvert \textbf{p} \rvert \rvert = \sqrt{p_1^2 + p_2^2 + \cdots + p_n^2} = \sqrt{\textbf{p} \cdot \textbf{p}},\]
+where the last expression involves the dot product.
+
+
+Source: [*Wikipedia - Euclidean Distance*](https://en.wikipedia.org/wiki/Euclidean_distance)
