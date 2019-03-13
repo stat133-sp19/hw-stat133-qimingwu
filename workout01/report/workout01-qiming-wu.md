@@ -73,78 +73,78 @@ Stephen Curry, known as one of the greatest shooters in NBA history, has most sh
 
 ``` r
 # close to basket
-data %>% select(name, shot_made_flag, shot_distance) %>% filter(name == "Stephen Curry") %>% summarise(total_close = length(shot_made_flag[name == "Stephen Curry" & shot_distance < 2]), made_close = length(shot_made_flag[name == "Stephen Curry"& shot_distance < 2 & shot_made_flag == "shot_yes"]), close_perc = made_close / total_close)
+data %>% select(name, shot_made_flag, shot_distance) %>% filter(name == "Stephen Curry") %>% summarise(total_close = length(shot_made_flag[name == "Stephen Curry" & shot_distance < 2]), made_close = length(shot_made_flag[name == "Stephen Curry"& shot_distance < 2 & shot_made_flag == "shot_yes"]), close_perc = made_close / total_close * 100)
 ```
 
     ##   total_close made_close close_perc
-    ## 1         178        132   0.741573
+    ## 1         178        132    74.1573
 
 ``` r
 # left
-data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_left = length(shot_made_flag[name == "Stephen Curry" & x < -50]), made_left = length(shot_made_flag[name == "Stephen Curry" & x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left)
+data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_left = length(shot_made_flag[name == "Stephen Curry" & x < -50]), made_left = length(shot_made_flag[name == "Stephen Curry" & x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left * 100)
 ```
 
     ##   total_left made_left left_perc
-    ## 1        371       176 0.4743935
+    ## 1        371       176  47.43935
 
 ``` r
 # middle
-data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50]), made_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle)
+data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50]), made_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle * 100)
 ```
 
     ##   total_middle made_middle middle_perc
-    ## 1          487         261   0.5359343
+    ## 1          487         261    53.59343
 
 ``` r
 # right
-data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_right = length(shot_made_flag[name == "Stephen Curry" & x > 50]), made_right = length(shot_made_flag[name == "Stephen Curry" & x > 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right)
+data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_right = length(shot_made_flag[name == "Stephen Curry" & x > 50]), made_right = length(shot_made_flag[name == "Stephen Curry" & x > 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right * 100)
 ```
 
     ##   total_right made_right right_perc
-    ## 1         389        147   0.377892
+    ## 1         389        147    37.7892
 
 ##### Rank Five Players' Success Rate at Different Positions
 
 We can use similar methods to examine how distance and position affects the Effective Shooting Percentage (ESP) of each player. Here are their rankings of ESP at different shot positions:
 
 ``` r
-data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_left = length(shot_made_flag[x < -50]), made_left = length(shot_made_flag[x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left) %>% arrange(desc(left_perc))
+data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_left = length(shot_made_flag[x < -50]), made_left = length(shot_made_flag[x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left * 100) %>% arrange(desc(left_perc))
 ```
 
     ## # A tibble: 5 x 4
     ##   name           total_left made_left left_perc
     ##   <chr>               <int>     <int>     <dbl>
-    ## 1 Kevin Durant          198        96     0.485
-    ## 2 Stephen Curry         371       176     0.474
-    ## 3 Klay Thompson         329       152     0.462
-    ## 4 Andre Iguodala        100        36     0.36 
-    ## 5 Draymond Green        117        38     0.325
+    ## 1 Kevin Durant          198        96      48.5
+    ## 2 Stephen Curry         371       176      47.4
+    ## 3 Klay Thompson         329       152      46.2
+    ## 4 Andre Iguodala        100        36      36  
+    ## 5 Draymond Green        117        38      32.5
 
 ``` r
-data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_middle = length(shot_made_flag[x >= -50 & x < 50]), made_middle = length(shot_made_flag[x >= -50 & x < 50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle) %>% arrange(desc(middle_perc))
+data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_middle = length(shot_made_flag[x >= -50 & x < 50]), made_middle = length(shot_made_flag[x >= -50 & x < 50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle * 100) %>% arrange(desc(middle_perc))
 ```
 
     ## # A tibble: 5 x 4
     ##   name           total_middle made_middle middle_perc
     ##   <chr>                 <int>       <int>       <dbl>
-    ## 1 Andre Iguodala          161         111       0.689
-    ## 2 Kevin Durant            444         291       0.655
-    ## 3 Stephen Curry           487         261       0.536
-    ## 4 Klay Thompson           373         198       0.531
-    ## 5 Draymond Green          369         184       0.499
+    ## 1 Andre Iguodala          161         111        68.9
+    ## 2 Kevin Durant            444         291        65.5
+    ## 3 Stephen Curry           487         261        53.6
+    ## 4 Klay Thompson           373         198        53.1
+    ## 5 Draymond Green          369         184        49.9
 
 ``` r
-data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_right = length(shot_made_flag[x >= 50]), made_right = length(shot_made_flag[x >= 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right) %>% arrange(desc(right_perc))
+data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_right = length(shot_made_flag[x >= 50]), made_right = length(shot_made_flag[x >= 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right * 100) %>% arrange(desc(right_perc))
 ```
 
     ## # A tibble: 5 x 4
     ##   name           total_right made_right right_perc
     ##   <chr>                <int>      <int>      <dbl>
-    ## 1 Klay Thompson          518        225      0.434
-    ## 2 Andre Iguodala         110         45      0.409
-    ## 3 Kevin Durant           273        108      0.396
-    ## 4 Stephen Curry          392        147      0.375
-    ## 5 Draymond Green          92         23      0.25
+    ## 1 Klay Thompson          518        225       43.4
+    ## 2 Andre Iguodala         110         45       40.9
+    ## 3 Kevin Durant           273        108       39.6
+    ## 4 Stephen Curry          392        147       37.5
+    ## 5 Draymond Green          92         23       25
 
 It is anticipated that all players have significantly higher ESF when shooting in the middle part of the court (49.9% to 68.9%), facing direct to the basket. Players have 32.5% to 48.5% ESF on the left side and 25.0% to 43.4% ESF on the right. The specific rankings vary among five players, but the overall trend remains the same for all.
 

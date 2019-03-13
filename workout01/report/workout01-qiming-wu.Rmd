@@ -66,38 +66,38 @@ As we may have expected, the area under the basket is where most players have th
 
 ```{r}
 # close to basket
-data %>% select(name, shot_made_flag, shot_distance) %>% filter(name == "Stephen Curry") %>% summarise(total_close = length(shot_made_flag[name == "Stephen Curry" & shot_distance < 2]), made_close = length(shot_made_flag[name == "Stephen Curry"& shot_distance < 2 & shot_made_flag == "shot_yes"]), close_perc = made_close / total_close)
+data %>% select(name, shot_made_flag, shot_distance) %>% filter(name == "Stephen Curry") %>% summarise(total_close = length(shot_made_flag[name == "Stephen Curry" & shot_distance < 2]), made_close = length(shot_made_flag[name == "Stephen Curry"& shot_distance < 2 & shot_made_flag == "shot_yes"]), close_perc = made_close / total_close * 100)
 ```
 
 
 ```{r}
 # left
-data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_left = length(shot_made_flag[name == "Stephen Curry" & x < -50]), made_left = length(shot_made_flag[name == "Stephen Curry" & x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left)
+data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_left = length(shot_made_flag[name == "Stephen Curry" & x < -50]), made_left = length(shot_made_flag[name == "Stephen Curry" & x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left * 100)
 ```
 
 ```{r}
 # middle
-data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50]), made_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle)
+data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50]), made_middle = length(shot_made_flag[name == "Stephen Curry" & x < 50 & x >= -50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle * 100)
 ```
 
 ```{r}
 # right
-data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_right = length(shot_made_flag[name == "Stephen Curry" & x > 50]), made_right = length(shot_made_flag[name == "Stephen Curry" & x > 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right)
+data %>% select(name, shot_made_flag, x) %>% filter(name == "Stephen Curry") %>% summarise(total_right = length(shot_made_flag[name == "Stephen Curry" & x > 50]), made_right = length(shot_made_flag[name == "Stephen Curry" & x > 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right * 100)
 ```
 
 #####Rank Five Players' Success Rate at Different Positions
 We can use similar methods to examine how distance and position affects the Effective Shooting Percentage (ESP) of each player. Here are their rankings of ESP at different shot positions:
 
 ```{r}
-data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_left = length(shot_made_flag[x < -50]), made_left = length(shot_made_flag[x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left) %>% arrange(desc(left_perc))
+data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_left = length(shot_made_flag[x < -50]), made_left = length(shot_made_flag[x < -50 & shot_made_flag == "shot_yes"]), left_perc = made_left / total_left * 100) %>% arrange(desc(left_perc))
 ```
 
 ```{r}
-data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_middle = length(shot_made_flag[x >= -50 & x < 50]), made_middle = length(shot_made_flag[x >= -50 & x < 50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle) %>% arrange(desc(middle_perc))
+data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_middle = length(shot_made_flag[x >= -50 & x < 50]), made_middle = length(shot_made_flag[x >= -50 & x < 50 & shot_made_flag == "shot_yes"]), middle_perc = made_middle / total_middle * 100) %>% arrange(desc(middle_perc))
 ```
 
 ```{r}
-data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_right = length(shot_made_flag[x >= 50]), made_right = length(shot_made_flag[x >= 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right) %>% arrange(desc(right_perc))
+data %>% select(name, shot_made_flag, x) %>% group_by(name) %>% summarise(total_right = length(shot_made_flag[x >= 50]), made_right = length(shot_made_flag[x >= 50 & shot_made_flag == "shot_yes"]), right_perc = made_right / total_right * 100) %>% arrange(desc(right_perc))
 ```
 
 It is anticipated that all players have significantly higher ESF when shooting in the middle part of the court (49.9% to 68.9%), facing direct to the basket. Players have 32.5% to 48.5% ESF on the left side and 25.0% to 43.4% ESF on the right. The specific rankings vary among five players, but the overall trend remains the same for all.
