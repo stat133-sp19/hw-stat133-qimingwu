@@ -21,7 +21,7 @@ data <- read.csv(file = "../data/shots-data.csv", stringsAsFactors = FALSE, head
 2 PT Field Goal effective shooting percentage by player, arranged in descending order by percentage.
 
 ``` r
-two_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "2PT Field Goal"]), made = length(shot_made_flag[shot_type == "2PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total) %>% arrange(desc(perc_made))
+two_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "2PT Field Goal"]), made = length(shot_made_flag[shot_type == "2PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total * 100) %>% arrange(desc(perc_made))
 ```
 
 ##### \* 3PT Effective Shooting % by Player:
@@ -29,7 +29,7 @@ two_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(
 3 PT Field Goal effective shooting percentage by player, arranged in descending order by percentage.
 
 ``` r
-three_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "3PT Field Goal"]), made = length(shot_made_flag[shot_type == "3PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total) %>% arrange(desc(perc_made))
+three_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "3PT Field Goal"]), made = length(shot_made_flag[shot_type == "3PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total * 100) %>% arrange(desc(perc_made))
 ```
 
 ##### \* Effective Shooting % by Player:
@@ -37,7 +37,7 @@ three_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_b
 Overall (i.e. including 2PT and 3PT Field Goals) effective shooting percentage by player, arranged in descending order by percentage.
 
 ``` r
-overall_ESP_rank <- data %>% select(name, shot_made_flag) %>% group_by(name) %>% summarise(total = length(shot_made_flag), made = length(shot_made_flag[shot_made_flag == "shot_yes"]), perc_made = made / total) %>% arrange(desc(perc_made))
+overall_ESP_rank <- data %>% select(name, shot_made_flag) %>% group_by(name) %>% summarise(total = length(shot_made_flag), made = length(shot_made_flag[shot_made_flag == "shot_yes"]), perc_made = made / total * 100) %>% arrange(desc(perc_made))
 ```
 
 ------------------------------------------------------------------------
@@ -159,11 +159,11 @@ two_point_rank
     ## # A tibble: 5 x 4
     ##   name           total  made perc_made
     ##   <chr>          <int> <int>     <dbl>
-    ## 1 Andre Iguodala   210   134     0.638
-    ## 2 Kevin Durant     643   390     0.607
-    ## 3 Stephen Curry    563   304     0.540
-    ## 4 Klay Thompson    640   329     0.514
-    ## 5 Draymond Green   346   171     0.494
+    ## 1 Andre Iguodala   210   134      63.8
+    ## 2 Kevin Durant     643   390      60.7
+    ## 3 Stephen Curry    563   304      54.0
+    ## 4 Klay Thompson    640   329      51.4
+    ## 5 Draymond Green   346   171      49.4
 
 For 2-point field goals, players' ESP ranges from 49.4% to 63.8%. Though Durant and Thompson had the most attempts in our data, they are not the most accurate shooter for 2-point goals. Instead, Iguodala has a great 63.8% ESP even if he attempted fewer shots than his teammates in that season.
 
@@ -174,11 +174,11 @@ three_point_rank
     ## # A tibble: 5 x 4
     ##   name           total  made perc_made
     ##   <chr>          <int> <int>     <dbl>
-    ## 1 Klay Thompson    580   246     0.424
-    ## 2 Stephen Curry    687   280     0.408
-    ## 3 Kevin Durant     272   105     0.386
-    ## 4 Andre Iguodala   161    58     0.360
-    ## 5 Draymond Green   232    74     0.319
+    ## 1 Klay Thompson    580   246      42.4
+    ## 2 Stephen Curry    687   280      40.8
+    ## 3 Kevin Durant     272   105      38.6
+    ## 4 Andre Iguodala   161    58      36.0
+    ## 5 Draymond Green   232    74      31.9
 
 Players' ESP for 3-point goals are much lower than their respective 2-point goals, varying from 31.9% to 42.4% Klay Thompson, who ranked 4th for 2-point goals, got the top position for 3-point goals. On the contrary, performing the best for 2-point goals does not guarantee a high rank for 3-point goals.
 
@@ -189,11 +189,11 @@ overall_ESP_rank
     ## # A tibble: 5 x 4
     ##   name           total  made perc_made
     ##   <chr>          <int> <int>     <dbl>
-    ## 1 Kevin Durant     915   495     0.541
-    ## 2 Andre Iguodala   371   192     0.518
-    ## 3 Klay Thompson   1220   575     0.471
-    ## 4 Stephen Curry   1250   584     0.467
-    ## 5 Draymond Green   578   245     0.424
+    ## 1 Kevin Durant     915   495      54.1
+    ## 2 Andre Iguodala   371   192      51.8
+    ## 3 Klay Thompson   1220   575      47.1
+    ## 4 Stephen Curry   1250   584      46.7
+    ## 5 Draymond Green   578   245      42.4
 
 As a summary for the overall shooting accurary ranking, we weighted two shot types to find the average ESP. So the overall ESP clearly centers around 50%, ranging from 42.4% to 54.1%. However, it is not true that players' with most attempts would have the highest ESP. But among all players, Draymond Green had the lowest ESP for both types of shots, making him 21.6% lower in ESP score than the top ranking player Kevin Durant. The other three players have similar overall ESP scores in the 2016-17 season. Does this ranking coincide with your impression?
 

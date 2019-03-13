@@ -5,7 +5,7 @@ date: "March 2, 2019"
 output: github_document
 ---
 
-```{r}
+```{r message = FALSE}
 library(dplyr)
 ```
 
@@ -21,19 +21,19 @@ data <- read.csv(file = "../data/shots-data.csv", stringsAsFactors = FALSE, head
 #####* 2PT Effective Shooting % by Player:  
 2 PT Field Goal effective shooting percentage by player, arranged in descending order by percentage.
 ```{r}
-two_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "2PT Field Goal"]), made = length(shot_made_flag[shot_type == "2PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total) %>% arrange(desc(perc_made))
+two_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "2PT Field Goal"]), made = length(shot_made_flag[shot_type == "2PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total * 100) %>% arrange(desc(perc_made))
 ```
 
 #####* 3PT Effective Shooting % by Player:  
 3 PT Field Goal effective shooting percentage by player, arranged in descending order by percentage.
 ```{r}
-three_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "3PT Field Goal"]), made = length(shot_made_flag[shot_type == "3PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total) %>% arrange(desc(perc_made))
+three_point_rank <- data %>% select(name, shot_made_flag, shot_type) %>% group_by(name) %>% summarise(total = length(shot_made_flag[shot_type == "3PT Field Goal"]), made = length(shot_made_flag[shot_type == "3PT Field Goal" & shot_made_flag == "shot_yes"]), perc_made = made / total * 100) %>% arrange(desc(perc_made))
 ```
 
 #####* Effective Shooting % by Player:  
 Overall (i.e. including 2PT and 3PT Field Goals) effective shooting percentage by player, arranged in descending order by percentage.
 ```{r}
-overall_ESP_rank <- data %>% select(name, shot_made_flag) %>% group_by(name) %>% summarise(total = length(shot_made_flag), made = length(shot_made_flag[shot_made_flag == "shot_yes"]), perc_made = made / total) %>% arrange(desc(perc_made))
+overall_ESP_rank <- data %>% select(name, shot_made_flag) %>% group_by(name) %>% summarise(total = length(shot_made_flag), made = length(shot_made_flag[shot_made_flag == "shot_yes"]), perc_made = made / total * 100) %>% arrange(desc(perc_made))
 ```
 
 ---
