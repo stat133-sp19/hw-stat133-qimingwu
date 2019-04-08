@@ -119,14 +119,6 @@ server <- function(input, output) {
   
   # Create the data frame for non-facet graphs and balances display
   modalities <- reactive({
-    # mode1 <- c()
-    # mode2 <- c()
-    # mode3 <- c()
-    # for (i in 0:input$years) {
-    #   mode1[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i)
-    #   mode2[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i) + annuity(contrib = input$contrib, rate = input$rate / 100, years = i)
-    #   mode3[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i) + growing_annuity(contrib = input$contrib, rate = input$rate / 100, growth = input$growth / 100, years = i)
-    # }
     modalities <- data.frame(years(), mode1(), mode2(), mode3(), stringsAsFactors = FALSE)
     names(modalities) <- c("year", "no_contrib", "fixed_contrib", "growing_contrib")
     modalities
