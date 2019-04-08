@@ -137,7 +137,7 @@ server <- function(input, output) {
       ylab("Total Value") +
       ggtitle("Three modes of investment") +
       theme_grey() +
-      scale_color_manual(name = "Mode", values = c("#7f00ff", "#108945", "#ff0000"))
+      scale_color_manual(name = "Mode", values = c("#ff0000", "#108945", "#7f00ff"))
   })
 
   # Create another data frame for facet graphs
