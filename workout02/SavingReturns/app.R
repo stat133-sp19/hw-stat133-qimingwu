@@ -159,7 +159,7 @@ server <- function(input, output) {
       ggtitle("Return of Investment for Different Investment Modes") +
       xlab("Number of Years") +
       ylab("Total Value") +
-      scale_color_manual(values = c("#7f00ff", "#108945", "#ff0000")) +
+      scale_color_manual(values = c("#ff0000", "#108945", "#7f00ff")) +
       theme_bw()
   })
   
