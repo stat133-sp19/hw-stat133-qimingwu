@@ -103,7 +103,8 @@ server <- function(input, output) {
   mode2 <- reactive({
     mode2 <- c()
     for (i in 0:input$years) {
-      mode2[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i) + annuity(contrib = input$contrib, rate = input$rate / 100, years = i)
+      mode2[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i) +
+        annuity(contrib = input$contrib, rate = input$rate / 100, years = i)
     }
     mode2
   })
@@ -111,7 +112,8 @@ server <- function(input, output) {
   mode3 <- reactive({
     mode3 <- c()
     for (i in 0:input$years) {
-      mode3[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i) + growing_annuity(contrib = input$contrib, rate = input$rate / 100, growth = input$growth / 100, years = i)
+      mode3[i + 1] <- future_value(amount = input$amount, rate = input$rate / 100, years = i) +
+        growing_annuity(contrib = input$contrib, rate = input$rate / 100, growth = input$growth / 100, years = i)
     }
     mode3
   })
@@ -143,7 +145,9 @@ server <- function(input, output) {
   # Create another data frame for facet graphs
   df2 <- reactive({
     year <- rep(years(), 3)
-    mode <- c(rep("No contribution", input$years + 1), rep("Fixed contribution", input$years + 1), rep("Growing contribution", input$years + 1))
+    mode <- c(rep("No contribution", input$years + 1),
+              rep("Fixed contribution", input$years + 1),
+              rep("Growing contribution", input$years + 1))
     value <- c(mode1(), mode2(), mode3())
     df2 <- data.frame(mode, year, value, stringsAsFactors = FALSE)
     df2

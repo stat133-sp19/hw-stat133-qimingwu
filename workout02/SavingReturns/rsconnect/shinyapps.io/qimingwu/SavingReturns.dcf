@@ -5,8 +5,8 @@ account: qimingwu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 847419
-bundleId: 1995748
+bundleId: 2006959
 url: https://qimingwu.shinyapps.io/SavingReturns/
-when: 1554752122.95546
+when: 1555101967.17613
 asMultiple: FALSE
 asStatic: FALSE
