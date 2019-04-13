@@ -69,7 +69,7 @@ ui <- fluidPage(
    
    fluidRow(
      column(12,
-            tableOutput("balances"))
+            verbatimTextOutput("balances", placeholder = TRUE))
    )
 )
 
@@ -176,7 +176,7 @@ server <- function(input, output) {
     }
    )
   
-  output$balances <- renderTable(
+  output$balances <- renderPrint(
     modalities()
   )
 }
