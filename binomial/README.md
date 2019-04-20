@@ -6,11 +6,11 @@ The package allows users to calculate probabilities, plot distributions and get 
 ### Package Structure
 
 This is a basic R package with standard components.  
-`R/` contains source code for various functions of the package.
-`tests/` contains some unit tests to check various functionalities of the package.
-`man/` contains documentations to help users understand the _main_ functions.
-`vignettes/` contains an introductory document that helps users get started with the package.
-`DISCRIPTION` and `NAMESPACE` contain the basic information about the package and its functionalities.
+`R/` contains source code for various functions of the package.  
+`tests/` contains some unit tests to check various functionalities of the package.  
+`man/` contains documentations to help users understand the _main_ functions.  
+`vignettes/` contains an introductory document that helps users get started with the package.  
+`DISCRIPTION` and `NAMESPACE` contain the basic information about the package and its functionalities.  
 `devtools-flow` contains the basic devtool commands to test, build and install the package.
 
 ### Getting Started
