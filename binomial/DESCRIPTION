@@ -7,7 +7,8 @@ Authors@R: person("Qiming", "Wu", email = "wuqiming9897@berkeley.edu",
 Description: Provides functions to simulate binomial distributions.
 Depends:
     R (>= 3.1.0)
-Suggests: knitr,
+Suggests: 
+    knitr,
     rmarkdown,
     testthat
 License: GPL-2
