@@ -17,3 +17,8 @@ Calculates the mode of a binomial variable
 \description{
 Calculates the mode of a binomial variable
 }
+\examples{
+# Calculate the mode(s) of a binomial distribution
+bin_mode(trials = 5, prob = 0.5)
+
+}

@@ -17,3 +17,8 @@ Calculates the variance of a binomial variable
 \description{
 Calculates the variance of a binomial variable
 }
+\examples{
+# Calculate the variance of a binomial distribution
+bin_variance(trials = 5, prob = 0.5)
+
+}

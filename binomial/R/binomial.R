@@ -63,6 +63,13 @@ aux_kurtosis <- function(trials, prob) {
 #' @param k Number of successes
 #' @return Calculates the number of combinations in which k successes can occur in n trials
 #' @export
+#' @examples
+#' # Calculate number of possible combinations
+#' # How many ways to choose 2 successes from 5 trials?
+#' comb1 <- bin_choose(n = 5, k = 2)
+#' # How many ways to choose 3 successes from 7 trials?
+#' comb2 <- bin_choose(n = 7, k = 3)
+#'
 bin_choose <- function(n, k) {
   for (v in k) {
     if (v > n) {
@@ -79,6 +86,12 @@ bin_choose <- function(n, k) {
 #' @param prob Probability of success
 #' @return Calculates the probability of having k successes in n trials with probability p
 #' @export
+#' @examples
+#' # Calculate single binomial probability
+#' bin_probability(success = 2, trials = 5, prob = 0.5)
+#' # Calculate multiple binomial probabilities using a vector
+#' bin_probability(success = c(1, 2, 3, 4, 5), trials = 5, prob = 0.5)
+#'
 bin_probability <- function(success, trials, prob) {
   check_trials(trials)
   check_prob(prob)
@@ -93,6 +106,12 @@ bin_probability <- function(success, trials, prob) {
 #' @param prob Probability of success
 #' @return An object representing the binomial distribution
 #' @export
+#' @examples
+#' # Create a binomial distribution object
+#' dis1 <- bin_distribution(trials = 5, prob = 0.5)
+#' # Create a bar plot of the binomial distribution
+#' plot(dis1)
+#'
 bin_distribution <- function(trials, prob) {
   success <- 0:trials
   probability <- bin_probability(success, trials, prob)
@@ -125,6 +144,12 @@ plot.bindis <- function(x) {
 #' @param prob Probability of success
 #' @return An object representing the cumulative binomial distribution
 #' @export
+#' @examples
+#' # Create a binomial cumulative distribution object
+#' dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+#' # Create a line graph of the cumulative distribution
+#' plot(dis2)
+#'
 bin_cumulative <- function(trials, prob) {
   bindist <- bin_distribution(trials, prob)
   df <- bindist$data_frame
@@ -160,6 +185,14 @@ plot.bincum <- function(x) {
 #' @param prob Probability of success
 #' @return An object of binomial variable
 #' @export
+#' @examples
+#' # Create a binomial variable
+#' var <- bin_variable(trials = 5, prob = 0.5)
+#' # Get summary statistics of the binomial variable
+#' sum_var <- summary(var)
+#' # Print summary statistics
+#' sum_var
+#'
 bin_variable <- function(trials, prob) {
   check_prob(prob)
   check_trials(trials)
@@ -213,6 +246,10 @@ print.summary.binvar <- function(x) {
 #' @param prob Probability of success
 #' @return Calculates the mean of a binomial variable
 #' @export
+#' @examples
+#' # Calculate the mean of a binomial distribution
+#' bin_mean(trials = 5, prob = 0.5)
+#'
 bin_mean <- function(trials, prob) {
   check_trials(trials)
   check_prob(prob)
@@ -225,6 +262,10 @@ bin_mean <- function(trials, prob) {
 #' @param prob Probability of success
 #' @return Calculates the variance of a binomial variable
 #' @export
+#' @examples
+#' # Calculate the variance of a binomial distribution
+#' bin_variance(trials = 5, prob = 0.5)
+#'
 bin_variance <- function(trials, prob) {
   check_trials(trials)
   check_prob(prob)
@@ -237,6 +278,10 @@ bin_variance <- function(trials, prob) {
 #' @param prob Probability of success
 #' @return Calculates the mode of a binomial variable
 #' @export
+#' @examples
+#' # Calculate the mode(s) of a binomial distribution
+#' bin_mode(trials = 5, prob = 0.5)
+#'
 bin_mode <- function(trials, prob) {
   check_trials(trials)
   check_prob(prob)
@@ -249,6 +294,10 @@ bin_mode <- function(trials, prob) {
 #' @param prob Probability of success
 #' @return Calculates the skewness of a binomial variable
 #' @export
+#' @examples
+#' # Calculate the skewness of a binomial distribution
+#' bin_skewness(trials = 5, prob = 0.5)
+#'
 bin_skewness <- function(trials, prob) {
   check_trials(trials)
   check_prob(prob)
@@ -261,6 +310,10 @@ bin_skewness <- function(trials, prob) {
 #' @param prob Probability of success
 #' @return Calculates the kurtosis of a binomial variable
 #' @export
+#' @examples
+#' # Calculate the kurtosis of a binomial distribution
+#' bin_kurtosis(trials = 5, prob = 0.5)
+#'
 bin_kurtosis <- function(trials, prob) {
   check_trials(trials)
   check_prob(prob)

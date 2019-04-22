@@ -17,3 +17,8 @@ Calculates the skewness of a binomial variable
 \description{
 Calculates the skewness of a binomial variable
 }
+\examples{
+# Calculate the skewness of a binomial distribution
+bin_skewness(trials = 5, prob = 0.5)
+
+}

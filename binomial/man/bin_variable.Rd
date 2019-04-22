@@ -17,3 +17,12 @@ An object of binomial variable
 \description{
 Creates an object of binomial variable
 }
+\examples{
+# Create a binomial variable
+var <- bin_variable(trials = 5, prob = 0.5)
+# Get summary statistics of the binomial variable
+sum_var <- summary(var)
+# Print summary statistics
+sum_var
+
+}

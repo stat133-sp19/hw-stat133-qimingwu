@@ -17,3 +17,8 @@ Calculates the kurtosis of a binomial variable
 \description{
 Calculates the kurtosis of a binomial variable
 }
+\examples{
+# Calculate the kurtosis of a binomial distribution
+bin_kurtosis(trials = 5, prob = 0.5)
+
+}

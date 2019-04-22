@@ -19,3 +19,10 @@ Calculates the probability of having k successes in n trials with probability p
 \description{
 Calculates the probability of having k successes in n trials with probability p
 }
+\examples{
+# Calculate single binomial probability
+bin_probability(success = 2, trials = 5, prob = 0.5)
+# Calculate multiple binomial probabilities using a vector
+bin_probability(success = c(1, 2, 3, 4, 5), trials = 5, prob = 0.5)
+
+}

@@ -17,3 +17,10 @@ An object representing the binomial distribution
 \description{
 Creates an object of binomial distribution
 }
+\examples{
+# Create a binomial distribution object
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+# Create a bar plot of the binomial distribution
+plot(dis1)
+
+}

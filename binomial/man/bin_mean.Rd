@@ -17,3 +17,8 @@ Calculates the mean of a binomial variable
 \description{
 Calculates the mean of a binomial variable
 }
+\examples{
+# Calculate the mean of a binomial distribution
+bin_mean(trials = 5, prob = 0.5)
+
+}

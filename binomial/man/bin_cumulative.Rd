@@ -17,3 +17,10 @@ An object representing the cumulative binomial distribution
 \description{
 Creates an object of cumulative binomial distribution
 }
+\examples{
+# Create a binomial cumulative distribution object
+dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+# Create a line graph of the cumulative distribution
+plot(dis2)
+
+}

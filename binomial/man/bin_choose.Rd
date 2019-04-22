@@ -17,3 +17,11 @@ Calculates the number of combinations in which k successes can occur in n trials
 \description{
 Calculates the number of combinations in which k successes can occur in n trials
 }
+\examples{
+# Calculate number of possible combinations
+# How many ways to choose 2 successes from 5 trials?
+comb1 <- bin_choose(n = 5, k = 2)
+# How many ways to choose 3 successes from 7 trials?
+comb2 <- bin_choose(n = 7, k = 3)
+
+}
