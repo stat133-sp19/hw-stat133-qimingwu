@@ -2,8 +2,8 @@ Package: binomial
 Type: Package
 Title: Binomial Distribution
 Version: 0.1.0
-Authors@R: person("Qiming", "Wu", email = "wuqiming9897@berkeley.edu",
-                  role = c("aut", "cre"))
+Author: person("Qiming", "Wu", email = "wuqiming9897@berkeley.edu", role = c("aut", "cre"))
+Maintainer: Qiming Wu <wuqiming9897@berkeley.edu>
 Description: Provides functions to simulate binomial distributions.
 Depends:
     R (>= 3.1.0)
