@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 library(binomial)
 ```
 
-## Binomial Distribution
+## Binomial Distribution Package Overview
 
 The package `"binomial"` implements functions for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc. It also provides some visualizations and summary for the binomial distribution.
 
@@ -24,16 +24,19 @@ The package `"binomial"` implements functions for calculating probabilities of a
 
 There are a few _main_ functions for direct use.  
 1. `bin_choose` calculates the number of combinations to get `k` successes from `n` trials.
+
 ```{r eval = FALSE}
 bin_choose(n, k)
 ```
 
 2. `bin_probability` calculates the probability of getting `k` successes from `trials` with success probability `prob`.
+
 ```{r eval = FALSE}
 bin_probability(success, trials, prob)
 ```
 
 3. `bin_distribution` displays a data frame containing the probability distribution information. You can also bar plot of the distribution with `plot()` method.
+
 ```{r eval = FALSE}
 dis1 <- bin_distribution(trials, prob)
 dis1
@@ -41,6 +44,7 @@ plot(dis1)
 ```
 
 4. `bin_cumulative` extends `bin_distribution` by another column, containing the cumulative distribution for binomial variables. You can also plot the cumulative distribution with `plot()` method.
+
 ```{r eval = FALSE}
 dis2 <- bin_cumulative(trials, prob)
 dis2
@@ -48,6 +52,12 @@ plot(dis2)
 ```
 
 5. `bin_variable` creates a binomial variable object. You can get some summary statistics using `summary()` method.
+
+```{r eval = FALSE}
+bin_var <- bin_variable(trials, prob)
+var_summary <- summary(bin_var)
+var_summary
+```
 
 There are five summary statistics supported by this package:
 
@@ -59,15 +69,27 @@ Assume a random variable $X$ follows $Bin(n, p)$ distribution.
 - Skewness $skewness = \frac{1 - 2p}{\sqrt{np(1-p)}}$
 - Kurtosis $kurtosis = \frac{1 - 6p(1 - p)}{np(1 - p)}$
 
-You can calculates this measures independently by calling the corresponding functions.
+6. You can calculates each summary statistic independently by calling the corresponding functions with number of trials and probability of success.
+
 ```{r eval=FALSE}
-bin_mean()
-bin_variance()
-bin_mode()
-bin_skewness()
-bin_kurtosis()
+bin_mean(trials, prob)
+bin_variance(trials, prob)
+bin_mode(trials, prob)
+bin_skewness(trials, prob)
+bin_kurtosis(trials, prob)
 ```
 
-All _main_ functions mentioned above are internally supported by _private_ auxilary functions. These functions are NOT intended to be called directly by the user.
+All _main_ functions mentioned above are internally supported by _private_ auxilary functions that do all actual computations. These functions are NOT intended to be called directly by the user.
+
+## Getting Help
+
+If you need additional help with functions in the package, please consult documentations for concrete explanantions and examples.
+
+For example, if you would like to know more about calculating binomial probabilities using bin_probability(), use one of the following two ways to get help:
+
+```{r eval=FALSE}
+?bin_probability
+help(bin_probability)
+```
 
 ---
