@@ -19,3 +19,8 @@ Please read the introduction in the `vignettes/` directory to learn the basic wo
 
 ### Author
 - __Qiming Wu__- Statistics Major, University of California, Berkeley
+
+### Acknowledgement
+I got extensive help from Professor Gaston Sanchez's online resources.
+- [Pack YouR Code](https://www.gastonsanchez.com/packyourcode/)
+- [Coin Toss GitHub Repository](https://github.com/gastonstat/cointoss)
