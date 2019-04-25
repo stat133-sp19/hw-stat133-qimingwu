@@ -18,20 +18,20 @@ test_that("bin_probability returns the correct binomial probability", {
 
 test_that("bin_distribution returns the correct data frame", {
   dis1 <- bin_distribution(trials = 5, prob = 0.5)
-  expect_equal(dis1$trials, 5)
-  expect_equal(dis1$prob, 0.5)
-  expect_equal(dis1$data_frame$success, 0:5)
-  expect_equal(dis1$data_frame$probability, 
+  expect_equal(length(dis1), 2)
+  expect_equal(nrow(dis1), 6)
+  expect_equal(dis1$success, 0:5)
+  expect_equal(dis1$probability,
                c(0.03125, 0.15625, 0.31250, 0.31250, 0.15625, 0.03125))
 })
 
 test_that("bin_cumulative returns the correct data frame", {
   dis2 <- bin_cumulative(trials = 5, prob = 0.5)
-  expect_equal(dis2$trials, 5)
-  expect_equal(dis2$prob, 0.5)
-  expect_equal(dis2$data_frame$success, 0:5)
-  expect_equal(dis2$data_frame$probability, 
+  expect_equal(length(dis2), 3)
+  expect_equal(nrow(dis2), 6)
+  expect_equal(dis2$success, 0:5)
+  expect_equal(dis2$probability,
                c(0.03125, 0.15625, 0.31250, 0.31250, 0.15625, 0.03125))
-  expect_equal(dis2$data_frame$cumulative,
+  expect_equal(dis2$cumulative,
                c(0.03125, 0.18750, 0.50000, 0.81250, 0.96875, 1.00000))
 })
