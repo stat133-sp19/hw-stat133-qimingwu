@@ -124,8 +124,7 @@ bin_distribution <- function(trials, prob) {
 plot.bindis <- function(x) {
   barplot(x$probability,
           xlab = "successes", ylab = "probability",
-          names.arg = x$success
-          )
+          names.arg = x$success)
 }
 
 #' @title Cumulative Binomial Distribution
