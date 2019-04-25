@@ -204,7 +204,7 @@ summary.binvar <- function(x) {
   return(object)
 }
 
-# Print the summary of a binomial variable
+#' @export
 print.summary.binvar <- function(x) {
   cat('"Summary Binomial"\n\n')
   cat('Parameters\n')
