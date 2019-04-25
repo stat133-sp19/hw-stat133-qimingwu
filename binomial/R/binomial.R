@@ -116,25 +116,15 @@ bin_distribution <- function(trials, prob) {
   success <- 0:trials
   probability <- bin_probability(success, trials, prob)
   df <- data.frame(success, probability)
-  object <- list(
-    trials = trials,
-    prob = prob,
-    data_frame = df)
-  class(object) <- c("bindis", "data.frame")
-  return(object)
-}
-
-# Print the data frame for binomial distribution
-print.bindis <- function(x) {
-  print(x$data_frame)
-  invisible(x)
+  class(df) <- c("bindis", "data.frame")
+  return(df)
 }
 
 #' @export
 plot.bindis <- function(x) {
-  barplot(x$data_frame$probability,
+  barplot(x$probability,
           xlab = "successes", ylab = "probability",
-          names.arg = 0:x$trials,
+          names.arg = x$success
           )
 }
 
@@ -151,32 +141,21 @@ plot.bindis <- function(x) {
 #' plot(dis2)
 #'
 bin_cumulative <- function(trials, prob) {
-  bindist <- bin_distribution(trials, prob)
-  df <- bindist$data_frame
+  df <- bin_distribution(trials, prob)
   cumulative <- c()
   for (i in 1:(trials + 1)) {
     cumulative[i] <- sum(df$probability[1:i])
   }
   df$cumulative <- cumulative
-  object <- list(
-    trials = trials,
-    prob = prob,
-    data_frame = df)
-  class(object) <- c("bincum", "data.frame")
-  return(object)
-}
-
-# Print the data frame for cumulative binomial distribution
-print.bincum <- function(x) {
-  print(x$data_frame)
-  invisible(x)
+  class(df) <- c("bincum", "data.frame")
+  return(df)
 }
 
 #' @export
 plot.bincum <- function(x) {
-  plot(x$data$success, x$data_frame$cumulative, type = "p",
+  plot(x$success, x$cumulative, type = "p",
        xlab = "successes", ylab = "probability")
-  lines(x$data_frame$success, x$data_frame$cumulative)
+  lines(x$success, x$cumulative)
 }
 
 #' @title Binomial Variable
