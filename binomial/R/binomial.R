@@ -121,7 +121,7 @@ bin_distribution <- function(trials, prob) {
 }
 
 #' @export
-plot.bindis <- function(x) {
+plot.bindis <- function(x, ...) {
   barplot(x$probability,
           xlab = "successes", ylab = "probability",
           names.arg = x$success)
@@ -151,7 +151,7 @@ bin_cumulative <- function(trials, prob) {
 }
 
 #' @export
-plot.bincum <- function(x) {
+plot.bincum <- function(x, ...) {
   plot(x$success, x$cumulative, type = "p",
        xlab = "successes", ylab = "probability")
   lines(x$success, x$cumulative)
@@ -182,15 +182,16 @@ bin_variable <- function(trials, prob) {
 }
 
 #' @export
-print.binvar <- function(x) {
+print.binvar <- function(x, ...) {
   cat('"Binomial variable"\n\n')
   cat('Parameters\n')
   cat(sprintf('- number of trials: %s', x$trials), "\n")
   cat(sprintf('- prob of success: %s', x$prob), "\n")
+  invisible(x)
 }
 
 #' @export
-summary.binvar <- function(x) {
+summary.binvar <- function(x, ...) {
   object <- list(
     trials = x$trials,
     prob = x$prob,
@@ -205,7 +206,7 @@ summary.binvar <- function(x) {
 }
 
 #' @export
-print.summary.binvar <- function(x) {
+print.summary.binvar <- function(x, ...) {
   cat('"Summary Binomial"\n\n')
   cat('Parameters\n')
   cat(sprintf('- number of trials: %s', x$trials), "\n")
@@ -216,6 +217,7 @@ print.summary.binvar <- function(x) {
   cat(sprintf('- mode    : %s', x$mode), "\n")
   cat(sprintf('- skewness: %s', x$skewness), "\n")
   cat(sprintf('- kurtosis: %s', x$kurtosis), "\n")
+  invisible(x)
 }
 
 #' @title Binomial Mean
